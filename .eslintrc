@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "prettier", "plugin:react/recommended"],
+  "plugins": ["react-hooks"],
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true
+  },
+  "rules": {
+    "no-console": "off",
+    "linebreak-style": ["error", "unix"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "name": "@rogerbf/use-middleware",
+  "version": "1.0.0",
+  "description": "a middleware hook",
+  "type": "module",
+  "main": "source/index.js",
+  "files": [
+    "source"
+  ],
+  "scripts": {
+    "clean": "rimraf coverage",
+    "coverage": "jest --coverage",
+    "develop": "jest --watch",
+    "format": "prettier --write '**/*.js'",
+    "lint": "eslint --fix .",
+    "prepare": "npm run test",
+    "pretest": "npm run clean && npm run format && npm run lint",
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "middleware",
+    "useReducer",
+    "reducer"
+  ],
+  "author": "Roger Berg Falk <roger@bergfa.lk>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "7.6.0",
+    "@babel/core": "7.6.0",
+    "@babel/plugin-transform-modules-commonjs": "7.6.0",
+    "@babel/plugin-transform-react-jsx": "7.3.0",
+    "@babel/preset-env": "7.6.0",
+    "@testing-library/react": "9.1.4",
+    "babel-eslint": "10.0.3",
+    "eslint": "6.3.0",
+    "eslint-config-prettier": "6.2.0",
+    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react-hooks": "2.0.1",
+    "husky": "3.0.5",
+    "jest": "24.9.0",
+    "lint-staged": "9.2.5",
+    "prettier": "1.18.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "rimraf": "3.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "dispatch-next-action": "4.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run format",
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerbf/use-middleware.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerbf/use-middleware/issues"
+  },
+  "homepage": "https://github.com/rogerbf/use-middleware#readme"
+}
