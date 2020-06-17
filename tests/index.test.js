@@ -9,7 +9,7 @@ const setup = (...args) => {
 
   render(
     <Middleware args={args}>
-      {value => {
+      {(value) => {
         dispatch = value
         return null
       }}
@@ -46,7 +46,7 @@ describe('useMiddleware', () => {
     it('calls the middleware before the terminating function', () => {
       const _dispatch = jest.fn()
 
-      const middleware = () => next => action => {
+      const middleware = () => (next) => (action) => {
         expect(_dispatch).not.toHaveBeenCalled()
         next(action)
       }
@@ -68,19 +68,19 @@ describe('useMiddleware', () => {
       })
 
       const middleware = [
-        () => next => action => {
+        () => (next) => (action) => {
           expect(_dispatch).not.toHaveBeenCalled()
           expect(numberOfMiddlewareCalled).toBe(0)
           numberOfMiddlewareCalled++
           return next(action)
         },
-        () => next => action => {
+        () => (next) => (action) => {
           expect(_dispatch).not.toHaveBeenCalled()
           expect(numberOfMiddlewareCalled).toBe(1)
           numberOfMiddlewareCalled++
           return next(action)
         },
-        () => next => action => {
+        () => (next) => (action) => {
           expect(_dispatch).not.toHaveBeenCalled()
           expect(numberOfMiddlewareCalled).toBe(2)
           numberOfMiddlewareCalled++

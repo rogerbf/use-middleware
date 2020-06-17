@@ -2,7 +2,7 @@ import { useMiddleware } from '../../source/index.js'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const logActionMiddleware = (_, { updateActionLog }) => next => action => {
+const logActionMiddleware = (_, { updateActionLog }) => (next) => (action) => {
   updateActionLog(action)
   return next(action)
 }
@@ -20,7 +20,7 @@ const Counter = () => {
 
   const [actionLog, setActionLog] = React.useState([])
 
-  const updateActionLog = action => setActionLog([...actionLog, action])
+  const updateActionLog = (action) => setActionLog([...actionLog, action])
 
   const dispatch = useMiddleware(
     { updateActionLog },
